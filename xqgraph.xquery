@@ -7,20 +7,17 @@ declare variable $xqgraph:lf := "&#10;";
 
 
 
-
-
 declare function xqgraph:pad-integer-to-length 
   ( $integerToPad as xs:anyAtomicType? ,
     $length as xs:integer )  as xs:string {
-	let $si := string($integerToPad)
+	let $si := fn:string($integerToPad)
 	return 
 
-    concat
-         (string-join( (for $i in 1 to $length - string-length($si)  return '0' ), '')
+    fn:concat(
+         (fn:string-join( (for $i in 1 to $length - fn:string-length($si)  return '0' ), '')
           ),
           $si)
  } ;
-
 
 
 
@@ -37,13 +34,13 @@ declare function xqgraph:txq_entry( $tqx as xs:string , $name as xs:string ) as 
 declare function xqgraph:zero4( $v as xs:integer ) as xs:string
 {
 
- 	functx:pad-integer-to-length( $v , 4 )
+ 	xqgraph:pad-integer-to-length( $v , 4 )
 };
 
 declare function xqgraph:zero2( $v as xs:integer ) as xs:string
 {
 
- 	functx:pad-integer-to-length( $v , 2 )
+ 	xqgraph:pad-integer-to-length( $v , 2 )
 };
 
 
@@ -264,7 +261,7 @@ declare function xqgraph:data-table-json( $tqx as xs:string , $status as xs:stri
 	return
  	 
 		fn:concat(
-		if( $responseHandler ) then $responseHandler else 'xqgraph.visualization.Query.setResponse' ,
+		if( $responseHandler ) then $responseHandler else 'google.visualization.Query.setResponse' ,
 		'(',
 			xqgraph:json-object( (
 				if( fn:exists($reqId) ) then xqgraph:json-member( 'reqId' , $reqId , 'string' ) else () ,
@@ -433,7 +430,7 @@ declare function xqgraph:parse-query( $query as xs:string? , $default as xs:stri
 
 (:
  : 
- : Copyright (C) 2011 , David A. Lee.
+ : Copyright (C) 2011 , 2012 David A. Lee.
  : 
  : The contents of this file are subject to the "Simplified BSD License" (the "License");
  : you may not use this file except in compliance with the License. You may obtain a copy of the
