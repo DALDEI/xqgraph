@@ -2,13 +2,21 @@
 
 = Introduction =
 
-xqgraph sample is setup to install as-is on a MarkLogic server.
+xqgraph sample is setup to install as-is on a !MarkLogic server with sample content.
+ 
+See the InstallXqgraph for examples
 
 
 
 = Details =
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+xqgraph is supplied as source in the Source tab.  This source is composed of the following files:
+
+* xqgraph.xquery - This is the core xqgraph module and is pure XQuery not dependant on a particular app server.k
+
+* marklogic/common.xquery - This is some !MarkLogic specific helper functions for creating JavaScript HTML tags and !MarkLogic app server specific code.
+
+* marklogic/logdata.xquery - This is a simple Google !DataSource provider written for !MarkLogic using built in data as a sample.
+ 
+
+* marklogic/sample_timeline.xquery - This is a simple Application Client for MarkLogic which shows a Timeline graph based on the logdata.xquery data source
