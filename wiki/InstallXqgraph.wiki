@@ -1,0 +1,12 @@
+#summary One-sentence summary of this page.
+
+= Installing XQGraph =
+
+To install the sample on a MarkLogic server.
+
+= Details =
+* Create an HTTP App Server within MarkLogic
+* Copy the files in Source/trunk to the root directory of the app server
+* Point your browser at the marklogic/sample_timeline.xquery URL 
+
+Done !
